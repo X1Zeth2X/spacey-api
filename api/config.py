@@ -4,6 +4,7 @@ from datetime import timedelta
 
 basedir = path.abspath(path.dirname(__file__))
 
+
 class Config:
     # Change secret keys in production run!
     SECRET_KEY = getenv("SECRET_KEY", urandom(25))

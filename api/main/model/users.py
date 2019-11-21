@@ -13,6 +13,7 @@ roles_users = db.Table(
     Column("role_id", db.Integer, db.ForeignKey("role.id")),
 )
 
+
 class User(Model):
 
     # Basic details
@@ -31,13 +32,13 @@ class User(Model):
 
     @password.setter
     def password(self, password):
-        self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        self.password_hash = bcrypt.generate_password_hash(password).decode("utf-8")
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f'<User '{ self.username }'>'
+        return f"<User '{ self.username }'>"
 
 
 class Role(Model):
@@ -51,6 +52,7 @@ class Role(Model):
 
     def __repr__(self):
         return f"<{ self.name } - { self.description }>"
+
 
 class UserSchema(ma.ModelSchema):
     class Meta:

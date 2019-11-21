@@ -12,6 +12,7 @@ from api.main.model.users import User, UserSchema
 # For more security, use a more complex regex.
 EMAIl_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 
+
 class AuthService:
     @staticmethod
     def login_user(data):
@@ -38,7 +39,7 @@ class AuthService:
                     "error_reason": "no_account",
                 }
                 return response_object, 404
-            
+
             elif user and user.check_password(password):
                 pass
 
