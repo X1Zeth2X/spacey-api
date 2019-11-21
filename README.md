@@ -1,25 +1,22 @@
-# NAQL - Backend
+# Flask RESTPlus Boilerplate
 
 ## What is it?
-NAQL's backend written in Python 3.6+. NAQL-API is a free and open source REST API that aims to be
-an OpenSaaS bus assistant application where the school can monitor the student's bus activity,
-reports, incidents, and more.
+This is a boilerplate written in Python 3.6+ and Flask RESTPlus. It has the usual API services like authentication and CRUD.
 
-**@todo - Add FE Repo Link.**
+## Features
+@todo - Add features.
 
 ## Requirements
-NAQL supports `PostGreSQL` by default although you can use other DBMS if you want to as long as SQLAlchemy supports it. When creating a PostGres DB, make sure that the config name matches the database in `src/config.py`
+API supports `PostGreSQL` by default although you can use other DBMS if you want to as long as SQLAlchemy supports it. When creating a PostGres DB, make sure that the config name matches the database in `api/config.py`
 
-NAQL-API uses [Pylint](https://www.pylint.org/) for linting the code.
+API uses [Black](https://github.com/psf/black) for linting the code.
 
 ## Contributing
-NAQL is a community project which includes this API. We welcome contributors who would like to make a good impact in the project and do **more**.
-
-Current guidelines for contributing is currently work in progress but here are the main ways of helping.
+Since a boilerplate.. is a boilerplate, nothing much needs to change but here are some of the ways:
 
 * Contributing to the source code.
 * Contributing to the documentation of the APIs.
-* Financial support/contribution.
 * Suggesting improvements, features, fixes, and so on.
+* A coffee for me.
 
 Feel free to contact [Zeth Leonardo](https://github.com/X1Zeth2X) for further inquiries.
