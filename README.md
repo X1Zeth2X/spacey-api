@@ -8,8 +8,7 @@ reports, incidents, and more.
 **@todo - Add FE Repo Link.**
 
 ## Requirements
-NAQL supports `PostGreSQL` by default although you can use other DBMS if you want to as long as SQLAlchemy supports it.
-When creating a PostGres DB, make sure that the config name matches the database in `src/config.py`
+NAQL supports `PostGreSQL` by default although you can use other DBMS if you want to as long as SQLAlchemy supports it. When creating a PostGres DB, make sure that the config name matches the database in `src/config.py`
 
 NAQL-API uses [Pylint](https://www.pylint.org/) for linting the code.
 
