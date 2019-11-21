@@ -24,7 +24,7 @@ class User(Model):
     password_hash = Column(db.String(255))
 
     # Statuses
-    joined_date = Column(db.DateTime)
+    joined_date = Column(db.DateTime, default=datetime.utcnow)
 
     @property
     def password(self):
