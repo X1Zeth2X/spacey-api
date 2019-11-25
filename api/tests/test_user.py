@@ -13,6 +13,7 @@ def get_user(self, access_token, username):
         content_type="application/json",
     )
 
+
 class TestAuthBlueprint(BaseTestCase):
     def test_registered_user_login(self):
         """ Test for login of registered-user login """
@@ -47,6 +48,7 @@ class TestAuthBlueprint(BaseTestCase):
             get_response_data = json.loads(get_response.data.decode())
 
             self.assertEqual(get_response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,6 @@
 import json
 
+
 def register_user(self):
     return self.client.post(
         "/auth/register",
