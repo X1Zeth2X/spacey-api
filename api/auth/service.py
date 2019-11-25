@@ -178,7 +178,7 @@ class AuthService:
                 username=username,
                 full_name=full_name,
                 password=password,
-                joined_date=datetime.utcnow,
+                joined_date=datetime.utcnow(),
             )
 
             # Add and commit the user to the database
@@ -202,7 +202,7 @@ class AuthService:
             return response_object, 201
 
         except Exception as error:
-            # Log error
+            print(error)
             response_object = {
                 "success": False,
                 "message": "Something went wrong during the process!",

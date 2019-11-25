@@ -15,7 +15,7 @@ user_schema = UserSchema()
 
 # You can use either an ID or Username
 def get_user(identifier):
-    if type(user_id) == int:
+    if type(identifier) == int:
         user = User.query.filter_by(id=identifier).first()
     else:
         user = User.query.filter_by(username=identifier).first()
