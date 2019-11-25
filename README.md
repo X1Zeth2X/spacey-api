@@ -1,7 +1,6 @@
 # Flask RESTPlus Boilerplate
 
-## What is it?
-This is a boilerplate written in Python 3.6+ and Flask RESTPlus. It has the usual API services like authentication and CRUD.
+An awesome boilerplate written in Python 3.6+ and Flask RESTPlus. It has the usual API services like authentication and CRUD with other cool stuff.
 
 ## Features
 * Fully featured RESTFul routes for authentication, and some CRUD user entity.
