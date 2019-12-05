@@ -1,5 +1,6 @@
 ## Main
 
+import logging
 from flask import Flask
 
 # Import extensions
@@ -15,6 +16,13 @@ static_url_path = basedir + "/static"
 def create_app(config_name):
     app = Flask(__name__, static_url_path=static_url_path)
     app.config.from_object(config_by_name[config_name])
+
+    ## Add logger
+    logging.basicConfig(
+        filename="api.log",
+        level=logging.NOTSET,
+        format="%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s",
+    )
 
     register_extensions(app)
 
