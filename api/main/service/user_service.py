@@ -3,6 +3,7 @@
 from datetime import datetime
 
 from api.main import db
+from api.util import Message, ErrResp
 from ..model.users import User, UserSchema
 
 private_info = (
@@ -21,12 +22,9 @@ def get_user(identifier):
         user = User.query.filter_by(username=identifier).first()
 
     if not user:
-        response_object = {
-            "success": False,
-            "message": "User does not exist!",
-            "error_reason": "non_existent",
-        }
-        return response_object, 404
+        resp = Message(False, "User does not exist!")
+        resp["error_reason"] = "user_404"
+        return resp, 404
 
     return user
 
@@ -54,9 +52,6 @@ class UserService:
         user_obj = get_user(username)
         user_info = load_user(user_obj)
 
-        response_object = {
-            "success": True,
-            "message": "User data sent.",
-            "user": user_info,
-        }
-        return response_object, 200
+        resp = Message(True, "user data sent.")
+        resp["user"] = user_info
+        return resp, 200
