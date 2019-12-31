@@ -19,7 +19,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = getenv(
-        "DATABASE_URL", "postgres://postgres:password@localhost:5432/flaskapitesting"
+        "DATABASE_URL", "postgres://postgres:password@localhost:5432/spaceytesting"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -34,7 +34,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = getenv(
-        "DATABASE_URL", "postgres://postgres:password@localhost:5432/flaskapi"
+        "DATABASE_URL", "postgres://postgres:password@localhost:5432/spacey"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
