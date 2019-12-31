@@ -18,7 +18,7 @@ class Fact:
 
     # Fact content
     title = Column(db.String(50))
-    content = Column(db.String(40))
+    content = Column(db.Text)
 
     created_at = Column(db.DateTime, default=datetime.utcnow)
     updated_at = Column(db.DateTime, default=datetime.utcnow)
