@@ -7,7 +7,8 @@ from uuid import uuid4
 
 from api.main import db
 from api.util import Message, ErrResp
-from api.main.model.users import User, UserSchema
+from api.main.model.user import User
+from api.main.model.schemas import UserSchema
 
 from api.main.service.user_service import load_user
 
