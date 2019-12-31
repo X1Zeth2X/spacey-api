@@ -7,7 +7,14 @@ def Message(success, message):
     return response_obect
 
 
-def ErrResp():
+def InternalErrResp():
     err = Message(False, "Something went wrong during the process!")
     err["error_reason"] = "server_error"
     return err, 500
+
+
+def ErrResp(message, error_reason, code):
+    err = Message(False, message)
+    err["error_reason"] = error_reason
+
+    return err, int(code)
