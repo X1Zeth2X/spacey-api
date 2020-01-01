@@ -10,6 +10,9 @@ class Config:
     SECRET_KEY = getenv("SECRET_KEY", urandom(25))
     DEBUG = False
 
+    # Key used for registering users.
+    ENTRY_KEY = getenv("ENTRY_KEY", "SpaceyTesting")
+
     # JWT Configs
     JWT_SECRET_KEY = getenv("JWT_SECRET_KEY", urandom(25))
     ## Set token to expire every week
