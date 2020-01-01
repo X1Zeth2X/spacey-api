@@ -15,6 +15,7 @@ class Fact:
     id = Column(db.Integer, primary_key=True)
     public_id = Column(db.String(15))
     author_id = Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    planet = Column(db.String(15))
 
     # Fact content
     title = Column(db.String(50))
