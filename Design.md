@@ -8,10 +8,10 @@ Features needed:
 * Entry keys, Rate limiting, and Role system.
 
 Possible endpoints:
-* `/api/facts`: Returns an array of objects that are randomly selected from the database.
-* `/api/facts/{planet: "earth"}`: Returns an object that contains information about the planet
+* `[Status: WIP]` `/api/facts`: Returns an array of objects that are randomly selected from the database.
+* `[Status: WIP]` `/api/facts/{planet: "earth"}`: Returns an object that contains information about the planet
 which also includes IDs for space facts (also randomly selected) that belong to the planet.
-* `/api/fact/<create, delete, update, get>`: Fact CRUD route.
+* `[Status: Done]` `/api/fact/<create, delete, update, get>`: Fact CRUD route.
   - `POST`: Creates a new fact.
   - `DELETE`: Deletes a fact by its public id.
   - `PUT`: Updates a fact, identified by its public id.
