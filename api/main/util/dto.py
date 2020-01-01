@@ -24,3 +24,6 @@ class FactDto:
             "content": fields.String(required=True, description="Fact content."),
         },
     )
+
+class FactsDto:
+    api = Namespace("facts", description="Route for getting facts information.")
