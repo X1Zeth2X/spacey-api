@@ -1,6 +1,5 @@
-from flask import request
 from flask_restplus import Resource
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required
 
 from api.main import limiter
 from ..util.dto import UserDto

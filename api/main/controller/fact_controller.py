@@ -4,7 +4,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from ..util.dto import FactDto
 
-from ..service.user.utils import load_user
+from ..service.user.utils import get_user
 from ..service.fact.service import FactService
 
 api = FactDto.api
@@ -26,6 +26,6 @@ class FactCreate(Resource):
     @api.doc("Add a new fact.", responses={})
     @jwt_required
     def post(self):
-        current_user = load_user(get_jwt_identity())
+        current_user = get_user(get_jwt_identity())
         data = request.get_json()
         return FactService.create(data, current_user)
