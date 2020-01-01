@@ -22,7 +22,7 @@ def get_user(identifier):
         user = User.query.filter_by(username=identifier).first()
 
     if not user:
-        ErrResp("User does not exist!", "user_404", 404)
+        return ErrResp("User does not exist!", "user_404", 404)
 
     return user
 
@@ -39,6 +39,5 @@ def load_user(user_obj):
     info = user_schema.dump(user_obj)
 
     # Filter
-    filter_user(info)
 
     return info
