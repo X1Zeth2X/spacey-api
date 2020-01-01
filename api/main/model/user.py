@@ -25,7 +25,7 @@ class User(Model):
 
     # Statuses
     joined_date = Column(db.DateTime, default=datetime.utcnow)
-    
+
     facts_created = relationship("Fact", backref="author", lazy=True)
 
     @property

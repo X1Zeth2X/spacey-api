@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from api.main import db, ma, bcrypt
+from api.main import db
 
 # Alias common SQLAlchemy names
 Column = db.Column
@@ -8,7 +8,7 @@ Model = db.Model
 relationship = db.relationship
 
 
-class Fact:
+class Fact(Model):
     """ Fact model for storing fact related stuff *shrug* """
 
     # Basic details

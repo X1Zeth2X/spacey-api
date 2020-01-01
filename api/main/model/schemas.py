@@ -11,5 +11,5 @@ class UserSchema(ma.ModelSchema):
 
 
 class FactSchema(ma.ModelSchema):
-    class meta:
+    class Meta:
         model = Fact
