@@ -7,6 +7,7 @@ from api.main.model.schemas import FactSchema
 
 # Define deserializers
 fact_schema = FactSchema()
+facts_schema = FactSchema(many=True)
 
 # Define solar system's planets
 solar_planets = (
@@ -26,7 +27,6 @@ solar_planets = (
 
 
 def update_fact(fact, content):
-    fact.title = title
     fact.content = content
 
     fact.updated_at = datetime.utcnow()
