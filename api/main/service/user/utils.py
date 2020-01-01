@@ -22,7 +22,7 @@ def get_user(identifier):
         user = User.query.filter_by(username=identifier).first()
 
     if not user:
-        ErrResp("User does not exist!", "user_404", 400)
+        ErrResp("User does not exist!", "user_404", 404)
 
     return user
 
