@@ -26,5 +26,8 @@ class AuthDto:
             "password": fields.String(
                 description="Password for securing user accounts."
             ),
+            "entry_key": fields.String(
+                description="Entry key for registering onto the platform."
+            ),
         },
     )
