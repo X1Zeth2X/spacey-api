@@ -8,8 +8,8 @@ from api.tests.common import register_user, login_user
 
 def get_user(self, access_token, username):
     return self.client.get(
-        "/user/get/%s" % username,
-        headers={"Authorization": "Bearer %s" % access_token},
+        f"/user/get/{username}",
+        headers={f"Authorization": "Bearer {access_token}"},
         content_type="application/json",
     )
 
