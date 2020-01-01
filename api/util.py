@@ -13,8 +13,8 @@ def InternalErrResp():
     return err, 500
 
 
-def ErrResp(message, error_reason, code):
+def ErrResp(message, reason, code):
     err = Message(False, message)
-    err["error_reason"] = error_reason
+    err["error_reason"] = reason
 
     return err, int(code)
