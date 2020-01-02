@@ -18,7 +18,7 @@ class Fact(Model):
     planet = Column(db.String(15))
 
     # Fact content
-    title = Column(db.String(50))
+    title = Column(db.String(50), nullable=True)
     content = Column(db.Text)
 
     created_at = Column(db.DateTime, default=datetime.utcnow)

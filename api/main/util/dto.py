@@ -20,7 +20,7 @@ class FactDto:
         "payload",
         {
             "planet": fields.String(required=True, description="Planet's name."),
-            "title": fields.String(required=True, description="Fact title."),
+            "title": fields.String(description="Fact title."),
             "content": fields.String(required=True, description="Fact content."),
         },
     )
