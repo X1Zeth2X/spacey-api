@@ -6,7 +6,7 @@ from api.util import Message, InternalErrResp, ErrResp
 
 from api.main.model.fact import Fact
 
-from .utils import add_fact_and_flush, delete_fact, load_fact, update_fact, facts_schema
+from .utils import add_fact_and_flush, delete_fact, load_fact, update_fact, facts_schema, solar_planets
 
 
 class FactService:
@@ -43,6 +43,14 @@ class FactService:
                 f"Given data exceeds limits (Title: {title_limit}, Content: {content_limit})",
                 "exceeded_limits",
                 400,
+            )
+
+        if planet not in solar_planets:
+            return ErrResp(
+                f"The planet specified is not in the solar system!\
+                  If it is just a general knowledge fact, use 'unspecified'",
+                  "planet_unknown",
+                  400
             )
 
         try:
