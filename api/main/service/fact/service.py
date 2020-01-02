@@ -13,7 +13,6 @@ class FactService:
     @staticmethod
     def create(data, current_user):
         # Assign the vars
-        title = data["title"]
         content = data["content"]
         planet = data["planet"]
 
@@ -21,12 +20,25 @@ class FactService:
         content_limit = 500
         title_limit = 50
 
+        if data["title"] is not None:
+            title = data["title"]
+
+            # Validate title
+            if len(title) > title_limit:
+                return ErrResp(
+                    f"Given data exceeds limits (Title: {title_limit}, Content: {content_limit})",
+                    "exceeded_limits",
+                    400,
+                )
+        else:
+            title = None
+
         # Check if the content doesn't exceed limits
-        if not content or not title:
+        if not content:
             return ErrResp("Required items are empty", "data_404", 400)
 
         # Make sure content and title don't exceed their limits
-        elif len(content) > content_limit or len(title) > title_limit:
+        elif len(content) > content_limit:
             return ErrResp(
                 f"Given data exceeds limits (Title: {title_limit}, Content: {content_limit})",
                 "exceeded_limits",
