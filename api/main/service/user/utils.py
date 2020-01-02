@@ -39,5 +39,6 @@ def load_user(user_obj):
     info = user_schema.dump(user_obj)
 
     # Filter
+    filter_user(info)
 
     return info
