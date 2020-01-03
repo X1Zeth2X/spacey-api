@@ -6,7 +6,14 @@ from api.util import Message, InternalErrResp, ErrResp
 
 from api.main.model.fact import Fact
 
-from .utils import add_fact_and_flush, delete_fact, load_fact, update_fact, facts_schema, solar_planets
+from .utils import (
+    add_fact_and_flush,
+    delete_fact,
+    load_fact,
+    update_fact,
+    facts_schema,
+    solar_planets,
+)
 
 
 class FactService:
@@ -45,12 +52,12 @@ class FactService:
                 400,
             )
 
-        if planet not in solar_planets:
+        if planet.title() not in solar_planets:
             return ErrResp(
                 f"The planet specified is not in the solar system!\
                   If it is just a general knowledge fact, use 'unspecified'",
-                  "planet_unknown",
-                  400
+                "planet_unknown",
+                400,
             )
 
         try:
@@ -58,7 +65,7 @@ class FactService:
             new_fact = Fact(
                 public_id=public_id,
                 author_id=current_user.id,
-                planet=planet,
+                planet=planet.title(),
                 title=title,
                 content=content,
             )
@@ -146,5 +153,18 @@ class FactsFeedService:
         return resp, 200
 
     @staticmethod
-    def planet(name):
-        return ErrResp("This hasn't been implemented yet.", "no_implementation", 500)
+    def get_by_planet(planet_name):
+        # Get 10 random facts that belongs to that planet
+        if planet_name not in solar_planets:
+            return ErrResp("Planet not found!", "planet_404", 404,)
+
+        planet_random_facts = (
+            Fact.query.filter_by(planet=planet_name).order_by(func.random()).limit(10)
+        )
+
+        # Load their info
+        planet_random_facts_info = facts_schema.dump(planet_random_facts)
+
+        resp = Message(True, "Planet's random facts sent.")
+        resp["facts"] = planet_random_facts_info
+        return resp, 200
