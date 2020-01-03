@@ -9,11 +9,27 @@ from ..service.fact.service import FactsFeedService
 api = FactsDto.api
 
 
-@api.route("/get")
-class FactGet(Resource):
-    @api.doc("Get a specific fact using its public id.", responses={
-      # To be added.
-    })
+@api.route("/")
+class FactsGet(Resource):
+    @api.doc(
+        "Get 10 random facts.",
+        responses={
+            # To be added.
+        },
+    )
     def get(self):
-        """ Get random 10 facts """
+        """ Get 10 random facts """
         return FactsFeedService.get()
+
+
+@api.route("/<string:planet_name>")
+class FactsGet(Resource):
+    @api.doc(
+        "Get 10 random facts about a planet",
+        responses={
+            # To be added.
+        },
+    )
+    def get(self, planet_name):
+        """ Get 10 random facts about a planet """
+        return FactsFeedService.get_by_planet(planet_name)
