@@ -1,3 +1,4 @@
+from flask import request
 from flask_restplus import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
@@ -18,8 +19,9 @@ class FactsGet(Resource):
         },
     )
     def get(self):
-        """ Get 10 random facts """
-        return FactsFeedService.get()
+        """ Get random facts """
+        limit = request.args.get("limit", default=100, type=int)
+        return FactsFeedService.get(limit)
 
 
 @api.route("/<string:planet_name>")
@@ -31,5 +33,6 @@ class FactsGet(Resource):
         },
     )
     def get(self, planet_name):
-        """ Get 10 random facts about a planet """
-        return FactsFeedService.get_by_planet(planet_name)
+        """ Get random facts about a planet """
+        limit = request.args.get("limit", default=100, type=int)
+        return FactsFeedService.get_by_planet(planet_name, limit)

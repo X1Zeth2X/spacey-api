@@ -141,9 +141,12 @@ class FactService:
 
 class FactsFeedService:
     @staticmethod
-    def get():
-        # Get 10 random facts
-        random_facts = Fact.query.order_by(func.random()).limit(10)
+    def get(limit):
+        if limit > 100:
+            return ErrResp("You have exceeded the limit (100)", "limits_exceeded", 400)
+
+        # Get random facts based on limits
+        random_facts = Fact.query.order_by(func.random()).limit(limit)
 
         # Load their info
         random_facts_info = facts_schema.dump(random_facts)
@@ -153,8 +156,11 @@ class FactsFeedService:
         return resp, 200
 
     @staticmethod
-    def get_by_planet(planet_name):
-        # Get 10 random facts that belongs to that planet
+    def get_by_planet(planet_name, limit):
+        if limit > 100:
+            return ErrResp("You have exceeded the limit (100)", "limits_exceeded", 400)
+
+        # Get random facts that belongs to that planet
         if planet_name not in solar_planets:
             return ErrResp("Planet not found!", "planet_404", 404,)
 
