@@ -17,7 +17,7 @@ static_url_path = basedir + "/static"
 
 def create_app(config_name):
     app = Flask(__name__, static_url_path=static_url_path)
-    app.config.from_object(getenv('APP_SETTINGS', config_by_name[config_name]))
+    app.config.from_object(config_by_name[config_name])
 
     ## Add logger
     logging.basicConfig(
