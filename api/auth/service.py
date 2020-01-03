@@ -27,7 +27,9 @@ class AuthService:
         try:
             # Check if the email or password was provided
             if not email or not password:
-                return ErrResp("Credentials not fully provided!", "invalid_credentials", 400)
+                return ErrResp(
+                    "Credentials not fully provided!", "invalid_credentials", 400
+                )
 
             # Fetch user data
             user = User.query.filter_by(email=email).first()
@@ -92,7 +94,9 @@ class AuthService:
 
             # Check if the username is alpha numeric
             elif not username.isalnum():
-                return ErrResp("Username is not alpha numeric.", "username_not_alphanum", 400)
+                return ErrResp(
+                    "Username is not alpha numeric.", "username_not_alphanum", 400
+                )
 
             # Verify the full name and if it exists
             if len(full_name) == 0 or full_name is None:

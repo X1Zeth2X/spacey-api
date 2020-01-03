@@ -20,8 +20,8 @@ solar_planets = (
     "Uranus",
     "Neptune",
     "Pluto",
-
-    "unspecified",
+    # Read comment below.
+    "Unspecified",
 )
 # "I know that, Pluto is no longer considered a planet,
 # it's a dwarf planet but it is also still a planet
@@ -29,6 +29,7 @@ solar_planets = (
 
 # Unspecified means the fact doesn't belong to a planet
 # and is just a general knowledge item.
+
 
 def update_fact(fact, content):
     fact.content = content

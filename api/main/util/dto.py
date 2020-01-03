@@ -25,5 +25,6 @@ class FactDto:
         },
     )
 
+
 class FactsDto:
     api = Namespace("facts", description="Route for getting facts information.")
