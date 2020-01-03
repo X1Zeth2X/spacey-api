@@ -9,7 +9,7 @@ from ..service.fact.service import FactsFeedService
 api = FactsDto.api
 
 
-@api.route("/")
+@api.route("/get")
 class FactsGet(Resource):
     @api.doc(
         "Get 10 random facts.",
