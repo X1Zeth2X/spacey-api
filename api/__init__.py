@@ -13,9 +13,9 @@ blueprint = Blueprint("api", __name__)
 
 api = Api(
     blueprint,
-    title="API with JWT",
+    title="Space-y API",
     version="0.1",
-    description="The coolest Flask RESTPlus boilerplate ever.",
+    description="Space-y's REST API.",
 )
 
 # api.add_namespace(namespace, path='/path' )
