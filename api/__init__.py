@@ -12,10 +12,7 @@ from .main.controller.facts_controller import api as facts_ns
 blueprint = Blueprint("api", __name__)
 
 api = Api(
-    blueprint,
-    title="Space-y API",
-    version="0.1",
-    description="Space-y's REST API.",
+    blueprint, title="Space-y API", version="0.1", description="Space-y's REST API.",
 )
 
 # api.add_namespace(namespace, path='/path' )
